@@ -13,7 +13,8 @@ export class CreateUsers1614736298125 implements MigrationInterface {
                     },
                     {
                         name: 'name',
-                        type: 'varchar'
+                        type: 'varchar',
+                        isNullable: true
                     },
                     {
                         name: 'email',
@@ -22,6 +23,7 @@ export class CreateUsers1614736298125 implements MigrationInterface {
                     {
                         name: 'password',
                         type: 'varchar',
+                        
                         
 
                     },

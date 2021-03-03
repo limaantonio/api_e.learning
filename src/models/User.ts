@@ -20,10 +20,10 @@ class User{
   @Column({ select: false })
   password: string;
 
-  @Column()
+  @Column({ select: false })
   passwordResetToken: string
 
-  @Column()
+  @Column({ select: false })
   passwordResetExpires: Date
 
   @CreateDateColumn()
