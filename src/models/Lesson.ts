@@ -18,6 +18,9 @@ class Lesson{
   description: string;
 
   @Column()
+  video_id: string;
+
+  @Column()
   course_id : string;
 
   @ManyToOne(() => Course, course => course.lessson, {eager: true})
@@ -25,7 +28,7 @@ class Lesson{
   course: Course
 
   @CreateDateColumn()
-  create_at: Date
+  created_at: Date
 
   constructor(){
     if(!this.id){

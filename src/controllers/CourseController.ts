@@ -49,6 +49,20 @@ class CourseController{
     return response.json(course)
 
   }
+
+  async update(request: Request, response: Response){
+    const {id} = request.params;
+    const {name, image} = request.body;
+
+    const courseRepository = getCustomRepository(CourseRepository);
+
+     await courseRepository.update(id, {
+      name, image
+    })
+
+    return response.send()
+
+  }
 }
 
 export {CourseController}

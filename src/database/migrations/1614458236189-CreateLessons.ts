@@ -25,9 +25,13 @@ export class CreateLessons1614310466620 implements MigrationInterface {
                     
                 },
                 {
-                    name: "create_at",
+                    name: "created_at",
                     type: "timestamp",
                     default: "now()"
+                },
+                {
+                    name: 'video_id',
+                    type: 'varchar',
                 },
                 {
                     name: "course_id",
