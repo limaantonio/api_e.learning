@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   const authHeader = req.headers.authorization;
   
   if(!authHeader)
-    return res.status(401).send({error: 'No token new provider'});
+    return res.status(401).send({error: 'No token provider'});
 
     const parts = authHeader.split(' ');
 

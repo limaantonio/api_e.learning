@@ -13,14 +13,16 @@ const lessonController = new LessonController()
 const authController = new AuthController()
 const sendMail = new SendMailController()
 
-router.post('/course', courseController.create)
+const authMiddleware = require('./middlewares/auth')
+
+router.post('/course', authMiddleware, courseController.create)
 router.get('/courses', courseController.list)
 router.get('/course/:id', courseController.index)
-router.put('/course/:id', courseController.update)
+router.put('/course/:id', authMiddleware, courseController.update)
 
-router.post('/lesson', lessonController.create)
+router.post('/lesson', authMiddleware, lessonController.create)
 router.get('/lessons', lessonController.list)
-router.put('/lesson/:id', lessonController.update)
+router.put('/lesson/:id', authMiddleware, lessonController.update)
 
 router.get('/courses/:id/lessons', lessonController.listByCourse)
 
