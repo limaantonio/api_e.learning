@@ -19,10 +19,13 @@ router.post('/course', authMiddleware, courseController.create)
 router.get('/courses', courseController.list)
 router.get('/course/:id', courseController.index)
 router.put('/course/:id', authMiddleware, courseController.update)
+router.delete('/course/:id', authMiddleware, courseController.delete)
+
 
 router.post('/lesson', authMiddleware, lessonController.create)
 router.get('/lessons', lessonController.list)
 router.put('/lesson/:id', authMiddleware, lessonController.update)
+router.delete('/lesson/:id', authMiddleware, lessonController.delete)
 
 router.get('/courses/:id/lessons', lessonController.listByCourse)
 

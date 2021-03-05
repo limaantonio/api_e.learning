@@ -63,6 +63,20 @@ class CourseController{
     return response.send()
 
   }
+
+  async delete(request: Request, response: Response){
+    const {id} = request.params;
+
+    try{
+      const courseRepository = getCustomRepository(CourseRepository);
+
+     await courseRepository.delete(id);
+
+      return response.send()
+    }catch(err){
+      return response.status(400);
+    }
+  }
 }
 
 export {CourseController}

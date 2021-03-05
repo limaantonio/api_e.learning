@@ -77,8 +77,6 @@ class LessonController{
       lesssonCourse = courseRepository.create({
         name: course,
         image: image
-        
-       
       })
       await courseRepository.save(lesssonCourse)
     }
@@ -86,10 +84,18 @@ class LessonController{
     const lesson =  lessonRepository.update(id, {
       name, duration, description, course: lesssonCourse, video_id
     })
-  
-    
-
     return response.send();
+
+  }
+
+  async delete(request: Request, response: Response){
+    const {id} = request.params;
+    
+    const lessonRepository = getCustomRepository(LessonRepository);
+
+     await lessonRepository.delete(id);
+
+    return response.send()
 
   }
 }
